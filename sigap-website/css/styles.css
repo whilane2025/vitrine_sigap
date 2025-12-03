@@ -1970,6 +1970,32 @@ p {
   margin: 0 auto;
 }
 
+/* Hero Dashboard Image - Desktop */
+.hero-dashboard-image {
+  width: 100%;
+  max-width: 1210px;
+  padding: 0;
+  margin: 3rem auto;
+  position: relative;
+}
+
+.hero-dashboard-image .site-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  box-shadow:
+    0 20px 60px rgba(13, 71, 161, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-dashboard-image .site-image:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 30px 80px rgba(13, 71, 161, 0.2),
+    0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
 /* Container pour screenshots piliers */
 .pillar-image-container {
   width: 100%;
@@ -1987,6 +2013,20 @@ p {
 
   .image-placeholder {
     padding: 15px;
+  }
+
+  /* Hero Dashboard Image - Mobile */
+  .hero-dashboard-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .hero-dashboard-image .site-image {
+    max-height: 400px;
+    object-fit: contain;
   }
 
   .image-placeholder .placeholder-icon {
