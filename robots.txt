@@ -1,0 +1,10 @@
+# robots.txt pour SIGAP
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://whilane2025.github.io/vitrine_sigap/sitemap.xml
+
+# Bloquer les dossiers non nécessaires (si existants)
+Disallow: /admin/
+Disallow: /private/
