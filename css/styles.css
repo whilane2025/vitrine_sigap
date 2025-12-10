@@ -1804,7 +1804,9 @@ p {
 
 .footer-copyright {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  /* color: rgba(255, 255, 255, 0.6);  */
+  color: #FFFFFF;  /*Blanc pur pour meilleur contraste */
+  opacity: 1;
   margin-top: auto;
   padding-top: 1rem;
 }
