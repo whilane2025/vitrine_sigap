@@ -130,7 +130,7 @@
 </head>
 <body>
     <!-- Skip link pour accessibilité -->
-    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link" tabindex="0">Aller au contenu principal</a>
     <!-- ============================================
          HEADER / NAVIGATION
          ============================================ -->
@@ -138,8 +138,11 @@
         <nav class="navbar container" role="navigation" aria-label="Navigation principale">
             <!-- Logo -->
             <a href="#hero" class="logo">
-                <img src="images/icons/logo_sigap.webp" alt="SIGAP - Système Intégré de Gestion des Activités Phytosanitaires" style="width: 80px; height: 90px;" loading="eager">
-            </a>
+                <picture>
+                    <source srcset="images/icons/logo_sigap.webp" type="image/webp">
+                    <img src="images/icons/logo_sigap.png" alt="SIGAP - Système Intégré de Gestion des Activités Phytosanitaires" style="width: 80px; height: 90px;" loading="eager">
+                    </picture>
+                </a>
 
             <!-- Navigation Desktop -->
             <ul class="nav-menu">
@@ -179,7 +182,7 @@
     <!-- ============================================
          MAIN CONTENT
          ============================================ -->
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
         <!-- ============================================
              SECTION HERO
              ============================================ -->
@@ -211,12 +214,15 @@
 
                     <!-- Image Hero - Screenshot Dashboard -->
                     <div class="image-placeholder hero-dashboard-image">
-                        <img
-                            src="images/screenshots/dashboard1_mockup_final.webp"
-                            alt="Dashboard SIGAP - Vue temps réel du CA, commandes et indicateurs de performance pour distributeurs phytosanitaires"
-                            class="site-image"
-                            loading="eager"
-                        >
+                        <picture>
+                            <source srcset="images/screenshots/dashboard1_mockup_final.webp" type="image/webp">
+                            <img
+                                src="images/screenshots/dashboard1_mockup_final.png"
+                                alt="Dashboard SIGAP - Vue temps réel du CA, commandes et indicateurs de performance pour distributeurs phytosanitaires"
+                                class="site-image"        
+                                loading="eager"
+                            >
+                        </picture>
                     </div>
 
                     <!-- Bullet Points avec icônes SVG -->
@@ -280,9 +286,12 @@
                 <h2 class="section-title text-center">Vous reconnaissez-vous ?</h2>
 
                 <!-- Image Manager Préoccupé -->
-                <div style="display: flex; justify-content: center; margin: 2rem 0;">
-                    <div class="image-placeholder manager-probleme-image" style="width: 100%; max-width: 500px; padding: 0;">
-                        <img src="images/general/manager-probleme.webp" alt="Manager commercial préoccupé cherchant des informations fiables sur ses équipes terrain" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px;" loading="lazy">
+                <div class="manager-probleme-container">
+                    <div class="image-placeholder manager-probleme-image">
+                        <picture>
+                            <source srcset="images/general/manager-probleme.webp" type="image/webp">
+                            <img src="images/general/manager-probleme.jpg" alt="Manager commercial préoccupé cherchant des informations fiables sur ses équipes terrain" class="manager-probleme-img" loading="lazy">
+                        </picture>
                     </div>
                 </div>
 
@@ -358,8 +367,8 @@
 
                         <!-- Screenshot Pilier 1 - Dashboard -->
                         <div class="pillar-image-container">
-                            <div class="image-placeholder" style="width: 100%; height: 220px; padding: 0">
-                                <img src="images/screenshots/dashboard-site2.webp" alt="SIGAP Dashboard temps réel - Liste des commandes livrées et en attente avec graphique CA" class="site-image" style="height: 220px;" loading="lazy">
+                            <div class="image-placeholder pillar-image-placeholder">
+                                <img src="images/screenshots/dashboard-site2.png" alt="SIGAP Dashboard temps réel - Liste des commandes livrées et en attente avec graphique CA" class="site-image pillar-screenshot" loading="lazy">
                             </div>
                         </div>
 
@@ -413,8 +422,8 @@
 
                         <!-- Screenshot Pilier 2 - Rapports -->
                         <div class="pillar-image-container">
-                            <div class="image-placeholder" style="width: 100%; height: 220px; padding: 0">
-                                <img src="images/screenshots/rapport_site.webp" alt="SIGAP Rapports instantanés - Génération de rapports commerciaux en 2 clics" class="site-image" style="height: 220px;" loading="lazy">
+                            <div class="image-placeholder pillar-image-placeholder">
+                                <img src="images/screenshots/rapport_site.png" alt="SIGAP Rapports instantanés - Génération de rapports commerciaux en 2 clics" class="site-image pillar-screenshot" loading="lazy">
                             </div>
                         </div>
 
@@ -459,8 +468,11 @@
 
                         <!-- Screenshot Pilier 3 - Objectifs -->
                         <div class="pillar-image-container">
-                            <div class="image-placeholder" style="width: 100%; height: 220px;padding: 0">
-                                <img src="images/screenshots/objectifs_site_final.webp" alt="SIGAP Pilotage par objectifs - Jauges de progression et alertes proactives" class="site-image" style="height: 220px;" loading="lazy">
+                            <div class="image-placeholder pillar-image-placeholder">
+                                <picture>
+                                    <source srcset="images/screenshots/objectifs_site_final.webp" type="image/webp">
+                                    <img src="images/screenshots/objectifs_site_final.png" alt="SIGAP Pilotage par objectifs - Jauges de progression et alertes proactives" class="site-image pillar-screenshot" loading="lazy">
+                                </picture>
                             </div>
                         </div>
 
@@ -713,10 +725,12 @@
                     <p class="cta-subtitle">Rejoignez les managers qui ont repris le contrôle de leur activité terrain</p>
 
                     <!-- Image CTA - Manager confiant -->
-                    <div style="display: flex; justify-content: center; margin: 2rem 0;">
-                        <div class="image-placeholder on-dark cta-manager-image" style="width: 100%; max-width: 450px; padding: 0;">
-                            <img src="images/general/manager-confiant.webp" alt="Manager satisfait utilisant SIGAP pour piloter son équipe commerciale" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" loading="lazy">
-                            <!-- <span class="placeholder-file">📁 images/general/manager-confiant.png<br>Dimensions : 500×400px</span> -->
+                    <div class="cta-manager-container">
+                        <div class="image-placeholder on-dark cta-manager-image">
+                            <picture>
+                                <source srcset="images/general/manager-confiant.webp" type="image/webp">
+                                <img src="images/general/manager-confiant.png" alt="Manager satisfait utilisant SIGAP pour piloter son équipe commerciale" class="cta-manager-img" loading="lazy">
+                            </picture>
                         </div>
                     </div>
 

@@ -307,6 +307,7 @@ p {
   .grid-4 {
     grid-template-columns: 1fr;
   }
+
 }
 
 @media (max-width: 480px) {
@@ -324,6 +325,88 @@ p {
     padding: 12px 24px;
     font-size: 0.9rem;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CORRECTION RESPONSIVE TABLETTE (iPad)
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Images dans les cards - remplir le conteneur */
+    .feature-card img,
+    .solution-pillar img,
+    .card img,
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* Exception pour screenshots piliers - ne pas recadrer */
+    .pillar-screenshot {
+        object-fit: contain !important;
+    }
+
+    /* Cards des piliers - ajustement largeur */
+    .solution-pillar,
+    .feature-card {
+        max-width: 100%;
+    }
+
+    /* Image du dashboard hero */
+    .hero-image {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    /* Dashboard hero image - plus grande sur tablette */
+    .hero-dashboard-image {
+        max-width: 95%;
+        margin: 2rem auto;
+    }
+
+    .hero-dashboard-image .site-image {
+        max-height: 550px;
+    }
+
+    /* Image manager-probleme - optimisée pour tablette */
+    .manager-probleme-image {
+        max-width: 600px;
+    }
+
+    .manager-probleme-img {
+        max-height: 450px;
+        object-fit: contain;
+    }
+
+    /* Image manager-confiant - optimisée pour tablette */
+    .cta-manager-image {
+        max-width: 550px;
+    }
+
+    .cta-manager-img {
+        max-height: 500px;
+        object-fit: contain;
+    }
+
+    /* Grille des piliers en 2 colonnes sur tablette */
+    .pillars.grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* Troisième pilier centré sur toute la largeur */
+    .pillars.grid-3 .pillar-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .pillars-grid,
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
 }
 
 /* ============================================
@@ -822,6 +905,28 @@ p {
   margin-top: 2rem;
 }
 
+/* Image Manager Problème */
+.manager-probleme-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.manager-probleme-image {
+  width: 100%;
+  max-width: 700px;
+  padding: 0;
+}
+
+.manager-probleme-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
 /* ============================================
    SECTION SOLUTION
    ============================================ */
@@ -995,18 +1100,7 @@ p {
     font-size: 1.25rem;
   }
 
-  .pillars.grid-3 {
-    grid-template-columns: 1fr;
-  }
-
-  .pillar-card {
-    padding: 2rem;
-  }
-
-  .pillar-card:nth-child(3) {
-    grid-column: auto;
-    max-width: none;
-  }
+  /* Les piliers restent en 2 colonnes sur iPad Mini portrait */
 
   .pillar-icon {
     width: 64px;
@@ -1038,8 +1132,23 @@ p {
     font-size: 0.95rem;
   }
 
+  /* Piliers en 1 colonne sur très petits écrans seulement */
+  .pillars.grid-3 {
+    grid-template-columns: 1fr;
+  }
+
   .pillar-card {
     padding: 1.5rem;
+  }
+
+  .pillar-card:nth-child(3) {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  /* Image manager-confiant - très petits écrans */
+  .cta-manager-img {
+    max-height: 350px;
   }
 
   .pillar-message {
@@ -1634,6 +1743,28 @@ p {
   text-decoration: underline;
 }
 
+/* Image Manager Confiant */
+.cta-manager-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.cta-manager-image {
+  width: 100%;
+  max-width: 600px;
+  padding: 0;
+}
+
+.cta-manager-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
 /* ============================================
    FOOTER
    ============================================ */
@@ -1812,20 +1943,24 @@ p {
     justify-content: center;
   }
 
-  /* Image CTA Manager - Responsive */
+  /* Image CTA Manager - Mobile */
   .cta-manager-image {
-    height: 250px !important;
+    max-width: 100%;
   }
 
-  /* Image Manager Problème - Responsive */
+  .cta-manager-img {
+    max-height: 400px;
+    object-fit: contain;
+  }
+
+  /* Image Manager Problème - Mobile */
   .manager-probleme-image {
-    max-width: 100% !important;
-    height: auto !important;
+    max-width: 100%;
   }
 
-  .manager-probleme-image img {
-    max-height: 300px;
-    object-fit: contain !important;
+  .manager-probleme-img {
+    max-height: 350px;
+    object-fit: contain;
   }
 
   .footer-grid {
@@ -1835,6 +1970,12 @@ p {
 
   .footer-column {
     text-align: center;
+    align-items: center;
+  }
+
+  .footer-column .image-placeholder {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .footer-info {
@@ -1894,9 +2035,36 @@ p {
   transition: all 0.3s ease;
 }
 
+/* Placeholder avec image - retire padding et background */
+.image-placeholder:has(img),
+.image-placeholder:has(picture) {
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Images et pictures dans placeholders - remplir le conteneur */
+.image-placeholder img,
+.image-placeholder picture {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-placeholder picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .image-placeholder:hover {
   border-color: #4CAF50;
   background-color: #f5f5f5;
+}
+
+/* Ne pas changer le background au hover si image présente */
+.image-placeholder:has(img):hover,
+.image-placeholder:has(picture):hover {
+  background-color: transparent;
 }
 
 .image-placeholder .placeholder-icon {
@@ -1936,6 +2104,13 @@ p {
   background: rgba(255,255,255,0.15);
   border-color: rgba(255,255,255,0.4);
   color: rgba(255,255,255,0.9);
+}
+
+/* Placeholder on-dark avec image - retire background et padding */
+.image-placeholder.on-dark:has(img),
+.image-placeholder.on-dark:has(picture) {
+  background: transparent;
+  padding: 0;
 }
 
 .image-placeholder.on-dark .placeholder-label {
@@ -1979,10 +2154,10 @@ p {
 .site-image {
   width: 100%;
   height: auto;
+  display: block;
   object-fit: cover;
   border-radius: 12px;
   /* box-shadow: 0 4px 20px rgba(0,0,0,0.1); */
-  align-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -2033,6 +2208,24 @@ p {
   overflow: hidden;
 }
 
+/* Pillar image placeholder - s'adapte à la taille de l'image */
+.pillar-image-placeholder {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pillar screenshots - remplissent leur conteneur */
+.pillar-screenshot {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
 /* Responsive placeholders */
 @media (max-width: 768px) {
   .hero-image-container {
@@ -2044,17 +2237,23 @@ p {
     padding: 15px;
   }
 
+  /* Placeholder avec image - pas de padding même en mobile */
+  .image-placeholder:has(img),
+  .image-placeholder:has(picture) {
+    padding: 0;
+  }
+
   /* Hero Dashboard Image - Mobile */
   .hero-dashboard-image {
     width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 500px;
     padding: 0;
     margin: 0 auto;
   }
 
   .hero-dashboard-image .site-image {
-    max-height: 400px;
+    max-height: 500px;
     object-fit: contain;
   }
 
@@ -2075,7 +2274,7 @@ p {
    ═══════════════════════════════════════════════════════════════ */
 
 .skip-link {
-  position: absolute;
+  position: fixed;
   top: -50px;
   left: 0;
   background: #0D47A1;
@@ -2086,12 +2285,20 @@ p {
   font-weight: 600;
   border-radius: 0 0 8px 0;
   transition: top 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.skip-link:focus {
-  top: 0;
-  outline: 3px solid #4CAF50;
+.skip-link:focus,
+.skip-link:focus-visible,
+.skip-link:active {
+  top: 0 !important;
+  outline: 3px solid #4CAF50 !important;
   outline-offset: 2px;
+}
+
+/* Élément cible du skip link */
+#main-content:focus {
+    outline: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════

@@ -27,6 +27,31 @@ document.addEventListener('DOMContentLoaded', function() {
         initAnimations();
     }, 300);
 
+    // ═══════════════════════════════════════════════════════════════
+    // SKIP LINK - Retirer le focus après clic
+    // ═══════════════════════════════════════════════════════════════
+    const skipLink = document.querySelector('.skip-link');
+    
+    if (skipLink) {
+        skipLink.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                e.preventDefault();
+                
+                // Déplacer le focus vers l'élément cible
+                targetElement.focus();
+                
+                // Scroll vers l'élément
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                
+                // Retirer le focus du skip link (le fait disparaître)
+                this.blur();
+            }
+        });
+    }
+
     // Futures initialisations
     // initFormValidation();
     // initFAQ();
